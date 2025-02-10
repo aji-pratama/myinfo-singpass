@@ -23,7 +23,7 @@ class MyInfoTests(TestCase):
     @patch('myinfo.client.MyInfoPersonalClientV4.retrieve_resource')
     def test_callback_success(self, mock_retrieve):
         mock_retrieve.return_value = {
-            'name': {'value': 'ANBK Tester'},
+            'name': {'value': 'ABNK Tester'},
             'sex': {'value': 'M'},
         }
 
@@ -37,7 +37,7 @@ class MyInfoTests(TestCase):
         )
         
         self.assertEqual(res.status_code, 200)
-        self.assertEqual(res.data['name']['value'], 'ANBK Tester')
+        self.assertEqual(res.data['name']['value'], 'ABNK Tester')
     
     def test_callback_no_code(self):
         res = self.client.get(reverse('myinfo_integration:callback'))
